@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App </title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+        }
+
+        .title {
+            font-size: 60px;
+            text-align: center;
+        }
+
+        .box {
+            width: 60%;
+            /* border: 3px solid black; */
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        .inputGroup {
+            /* border: 1px solid green; */
+            box-sizing: border-box;
+            /* width: fit-content; */
+            text-align: center;
+        }
+
+        #inputText {
+            width: 350px;
+            height: 25px;
+            outline: none;
+        }
+
+        #add {
+            height: 30px;
+            width: 50px;
+            margin-left: 10px;
+        }
+
+        .item {
+            cursor: pointer;
+        }
+
+        .remove {
+            color: rgb(255, 0, 0);
+            cursor: pointer;
+        }
+
+        table {
+            margin-top: 10px;
+            border-collapse: collapse;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+        }
+
+        /* table tr:last-child td:first-child {
+            border-bottom-left-radius: 10px;
+        }
+
+        table tr:last-child td:last-child {
+            border-bottom-right-radius: 10px;
+        } */
+
+        td {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">To Do</div>
+    <div class="box">
+        <div class="inputGroup">
+            <input type="text" id='inputText'><button id="add">Add</button>
+        </div>
+        <div class="list" id="list">
+            <table id="showItem" border="1">
+
+            </table>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
