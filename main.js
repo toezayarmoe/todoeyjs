@@ -5,9 +5,10 @@ let inputText = document.getElementById("inputText");
 var toDoListArr = [];
 retrieveList();
 addButton.addEventListener('click', function () {
-    toDoListArr.push(inputText.value); // Add the task to the array 
+    toDoListArr.push({task : inputText.value, isDone : 0}); // Add the task to the array
     inputText.value = ''; // reseting the value inside input
     window.localStorage.setItem("list", JSON.stringify(toDoListArr)); // adding item to localStrorage
+    console.log("something you don't know is happening")
     retrieveList(); // Creating UI or Reterviving List 
 });
 
@@ -27,8 +28,14 @@ function retrieveList() {
         var td1 = document.createElement("td"); // creating table data1 for user input
         var td2 = document.createElement("td"); // creating table data2 for remove key
         var row = document.createElement("tr");
-
-        td1.innerHTML = item; // add item which is from localStorage (i.e :  task ) to table data1 
+        // console.log(item["task"])
+        td1.innerHTML = item["task"];
+        if (item['isDone'] == 1) {
+            td1.style.textDecoration = 'line-through';
+        } else {
+            td1.style.textDecoration = '';
+        }
+        // add item which is from localStorage (i.e :  task ) to table data1
         td2.innerHTML = "remove"; // nothing special this is remove 
         
         // that is add styling
@@ -43,11 +50,14 @@ function retrieveList() {
 
         // this is what happen when you click the task 
         td1.addEventListener("click", function () {
-            if (td1.style.textDecoration == "line-through") {
-                td1.style.textDecoration = '';
-            } else {
-
+            if (item['isDone'] == 0) {
+                item['isDone'] = 1;
                 td1.style.textDecoration = 'line-through';
+                window.localStorage.setItem("list",JSON.stringify(toDoListArr));
+            } else {
+                item['isDone'] = 0;
+                td1.style.textDecoration = '';
+                window.localStorage.setItem("list",JSON.stringify(toDoListArr));
             }
         });
 
