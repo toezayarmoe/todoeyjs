@@ -14,7 +14,6 @@ addButton.addEventListener('click', function () {
         toDoListArr.push({task: inputText.value, isDone: 0}); // Add the task to the array
         inputText.value = ''; // reseting the value inside input
         window.localStorage.setItem("list", JSON.stringify(toDoListArr)); // adding item to localStrorage
-        console.log("something you don't know is happening")
         retrieveList();
     }// Creating UI or Reterviving List
 });
